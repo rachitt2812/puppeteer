@@ -1,5 +1,4 @@
 const { log } = require("console");
-const {chrome} = require("chrome-aws-lambda")
 const { timeout } = require("puppeteer");
 const { default: puppeteer } = require("puppeteer");
 const { setTimeout } = require("timers/promises");
@@ -20,9 +19,9 @@ const getReviews = async () => {
 
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch({
-      args: chrome.args,
-      executablePath: await chrome.executablePath,
-      headless: chrome.headless,
+      headless: true,  // Run in background (no UI)
+      defaultViewport: null, // Keep full viewport size for page
+      args: ['--start-maximized'] // Start the browser in maximized mode
     });
 
     // Navigate the page to a URL
