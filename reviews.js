@@ -15,7 +15,7 @@ async function autoScroll(page) {
 
 const getReviews = async () => {
 
-  try {
+  //try {
 
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch({
@@ -78,12 +78,12 @@ const getReviews = async () => {
       status: true,
       data: reviews
     };
-  } catch (error) {
-    return {
-      status: false,
-      data: error
-    };
-  }
+//  } catch (error) {
+  //  return {
+   //   status: false,
+     // data: error
+    //};
+  //}
 };
 module.exports = { getReviews };
 // (async () => {
