@@ -13,10 +13,8 @@ async function autoScroll(page) {
 const getReviews = async () => {
   try {
   const browser = await puppeteer.launch({
-    executablePath: '/usr/bin/google-chrome-stable',
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
-
 
     const page = await browser.newPage();
     await page.goto("https://web-fastcar.us-west-2.prod.apfmservices.com/community/sunrise-of-bloomingdale-68581");
