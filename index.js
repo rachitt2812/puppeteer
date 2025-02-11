@@ -7,7 +7,7 @@ const port = 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Hello Puppeteer!');
+  res.send('Hello Node Puppeteer!');
 });
 
 app.get('/api/reviews', async (req, res) => {
