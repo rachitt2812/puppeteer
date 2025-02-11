@@ -1,4 +1,5 @@
 const { log } = require("console");
+const {chrome} = require("chrome-aws-lambda")
 const { timeout } = require("puppeteer");
 const { default: puppeteer } = require("puppeteer");
 const { setTimeout } = require("timers/promises");
@@ -15,13 +16,13 @@ async function autoScroll(page) {
 
 const getReviews = async () => {
 
-  //try {
+  // try {
 
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch({
-      headless: true,  // Run in background (no UI)
-      defaultViewport: null, // Keep full viewport size for page
-      args: ['--start-maximized'] // Start the browser in maximized mode
+      args: chrome.args,
+      executablePath: await chrome.executablePath,
+      headless: chrome.headless,
     });
 
     // Navigate the page to a URL
@@ -78,12 +79,12 @@ const getReviews = async () => {
       status: true,
       data: reviews
     };
-//  } catch (error) {
-  //  return {
-   //   status: false,
-     // data: error
-    //};
-  //}
+  // } catch (error) {
+  //   return {
+  //     status: false,
+  //     data: error
+  //   };
+  // }
 };
 module.exports = { getReviews };
 // (async () => {
