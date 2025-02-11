@@ -6,6 +6,7 @@
       "use": "@vercel/node"
     }
   ],
+  "routes": [ { "src": "/(.*)", "dest": "/" } ],
   "env": {
     "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": "true",
     "PUPPETEER_EXECUTABLE_PATH": "/usr/bin/google-chrome-stable"
